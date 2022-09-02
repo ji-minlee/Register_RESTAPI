@@ -1,12 +1,14 @@
 package kr.ac.kopo.ctc.spring.register.domain;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import io.swagger.annotations.ApiModelProperty;
+
 
 @Entity
 public class RegisterItem {
@@ -15,25 +17,32 @@ public class RegisterItem {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column
+		@ApiModelProperty(value = "id")
 		private Long id;
 		
 		@Column
+		@ApiModelProperty(value = "사용자 id")
 		private String userId;
 		
 		@Column
+		@ApiModelProperty(value = "비밀번호")
 		private String password;
 		
 		@Column
+		@ApiModelProperty(value = "이름")
 		private String name;
 		
 		@Column 
-		private Date birthday;
+		@ApiModelProperty(value = "생년월일")
+		private String birthday;
 		
 		@Column 
+		@ApiModelProperty(value = "주소")
 		private String address;
 		
 		@Column
-		private Long phone;
+		@ApiModelProperty(value = "전화번호")
+		private String phone;
 
 		public Long getId() {
 			return id;
@@ -41,9 +50,7 @@ public class RegisterItem {
 
 		public void setId(Long id) {
 			this.id = id;
-		}
-
-		
+		}	
 		
 		
 		public String getUserId() {
@@ -72,11 +79,11 @@ public class RegisterItem {
 			this.name = name;
 		}
 
-		public Date getBirthday() {
+		public String getBirthday() {
 			return birthday;
 		}
 
-		public void setBirthday(Date birthday) {
+		public void setBirthday(String birthday) {
 			this.birthday = birthday;
 		}
 
@@ -88,12 +95,21 @@ public class RegisterItem {
 			this.address = address;
 		}
 
-		public Long getPhone() {
+		public String getPhone() {
 			return phone;
 		}
 
-		public void setPhone(Long phone) {
+		public void setPhone(String phone) {
 			this.phone = phone;
 		}
 
+		@Override
+		public String toString() {
+			return "RegisterItem [id=" + id + ", userId=" + userId + ", password=" + password + ", name=" + name
+					+ ", birthday=" + birthday + ", address=" + address + ", phone=" + phone + "]";
+		}
+
+
+		
+		
 }
